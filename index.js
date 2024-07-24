@@ -1,10 +1,13 @@
-require('dotenv').config();
-
+//require('dotenv').config();
+import('dotenv').then(dotenv => {
+    dotenv.config();
+  });
+  
 
 
 import app from "./server.js"
 import mongodb from "mongodb"
-import ReviewsDAO from "./dao/reviewsDAO.js"
+//import ReviewsDAO from "./dao/reviewsDAO.js"
 
 const MongoClient = mongodb.MongoClient
 const mongo_username = process.env['DB_USER']
@@ -17,7 +20,7 @@ MongoClient.connect(
     {
         maxPoolSize: 50,
         wtimeoutMS: 2500,
-        useNewUrlParser: true        
+        //useNewUrlParser: true        
     }
 )
 .catch(err =>{
